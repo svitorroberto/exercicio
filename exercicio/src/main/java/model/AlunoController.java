@@ -1,6 +1,7 @@
-package controller;
+package model;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/bancodados/CadastroAluno")
+@WebServlet(value = "/model")
 public class AlunoController extends HttpServlet {
 
   protected void service(
@@ -35,6 +36,9 @@ public class AlunoController extends HttpServlet {
     }
     
     req.setAttribute("aluno", aluno); //Passando um objeto para o JSP.
+    
+    List<Aluno> alunos = Aluno.listar();
+    req.setAttribute("alunos", alunos); //Passando uma coleção para o JSP.
     
     //Chamar o JSP apenas para mostrar o resultado.
     req.getRequestDispatcher("CadastroAlunoView.jsp").forward(req, resp);

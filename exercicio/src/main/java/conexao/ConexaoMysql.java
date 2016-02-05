@@ -18,11 +18,10 @@ public class ConexaoMysql {
 			con = DriverManager.getConnection(url,usuario,senha);
 			System.out.println("Conectado!");
 			con.close();
+			System.out.println("Desconectado!");
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 
